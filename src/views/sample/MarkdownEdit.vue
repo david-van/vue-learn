@@ -2,10 +2,10 @@
 一个简单的 markdown 编辑器。
 -->
 
-<script setup>
+<script setup lang="ts">
 import { marked } from 'marked'
 import { debounce } from 'lodash-es'
-import { ref, computed, reactive } from 'vue'
+import { ref, computed } from 'vue'
 
 const input = ref('# hello')
 

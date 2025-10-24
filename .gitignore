@@ -8,6 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 .vscode
+# auto generated files
+src/auto-imports.d.ts
+src/components.d.ts
 
 node_modules
 .DS_Store
