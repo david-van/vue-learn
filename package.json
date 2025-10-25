@@ -18,6 +18,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
     "@types/lodash-es": "^4.17.12",
     "element-plus": "^2.11.5",
     "lodash-es": "^4.17.21",
@@ -27,6 +28,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@iconify-json/el": "^1.2.2",
     "@iconify-json/ep": "^1.2.3",
     "@iconify-json/mdi": "^1.2.3",
     "@playwright/test": "^1.55.1",

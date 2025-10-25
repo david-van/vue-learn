@@ -10,6 +10,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import Icons from 'unplugin-icons/vite'
+import { ElementUiResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,6 +25,7 @@ export default defineConfig({
     Components({
       resolvers: [
         ElementPlusResolver(),
+        ElementUiResolver(),
         IconsResolver({
           prefix: 'icon',
           // this is optional, default enabling all the collections supported by Iconify
