@@ -11,13 +11,15 @@ import IconsResolver from 'unplugin-icons/resolver'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import Icons from 'unplugin-icons/vite'
 import { ElementUiResolver } from 'unplugin-vue-components/resolvers'
-
+import {mockDevServerPlugin} from 'vite-plugin-mock-dev-server'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
     vueDevTools(),
+    // mock接口数据
+    mockDevServerPlugin(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
       dts: 'src/auto-imports.d.ts',
@@ -48,6 +50,13 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+
+  server: {
+    // 插件将会读取 `server.proxy`
+    proxy: {
+      '^/api': { target: 'http://example.com' },
     },
   },
 })
