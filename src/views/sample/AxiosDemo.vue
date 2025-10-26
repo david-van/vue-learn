@@ -1,10 +1,24 @@
 <script setup lang="ts">
-import request from '@/utils/request.ts'
+import type { LoginFormData } from '@/api/user/types.ts'
+import { reqLogin } from '@/api/user'
+
 // 发起一个post请求
-function sendReq() {
-  console.log('start')
-  const result = request.get('/user/id')
+async function sendReq() {
+  console.log('start111')
+  // request.get('/user/id')
+  //   .then((res) => {
+  //   console.log(res)
+  // })
+  // const result = await request.get('/user/id')
+  // console.log(result)
+  const params: LoginFormData = {
+    username: 'admin',
+    password: '111111',
+  }
+  const result = await reqLogin(params)
   console.log(result)
+
+  console.log(result.token)
 }
 </script>
 
