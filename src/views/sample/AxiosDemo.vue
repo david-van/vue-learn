@@ -4,7 +4,6 @@ import { reqLogin } from '@/api/user'
 
 // 发起一个post请求
 async function sendReq() {
-  console.log('start111')
   // request.get('/user/id')
   //   .then((res) => {
   //   console.log(res)
