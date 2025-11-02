@@ -1,11 +1,34 @@
 <script setup lang="ts">
 import { Lock, User } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import useUserStore from '@/stores/modules/user.ts'
+import type { LoginFormData } from '@/api/user/types.ts'
+import { useRouter } from 'vue-router'
 
-const loginForm = ref({
+const loginForm = ref<LoginFormData>({
   username: 'admin',
   password: '111111',
 })
+const userStore = useUserStore()
+const router = useRouter()
+const load = ref(false)
+const login = async () => {
+  try {
+    load.value = true
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    await userStore.userLogin(loginForm.value)
+    load.value = false
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    router.push('/')
+    ElNotification({
+      title: '登录成功',
+      type: 'success',
+    })
+  } catch (e) {
+    console.log('e is %O', e)
+    load.value = false
+  }
+}
 </script>
 
 <template>
@@ -28,7 +51,9 @@ const loginForm = ref({
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button class="login_button" type="primary">登录</el-button>
+            <el-button :loading="load" class="login_button" type="primary" v-on:click="login">
+              登录
+            </el-button>
           </el-form-item>
         </el-form>
       </el-col>
