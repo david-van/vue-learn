@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <h1>这个是测试</h1>
+    <router-view></router-view>
   </div>
 </template>
 
