@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import useUserStore from '@/stores/modules/user.ts'
 import type { LoginFormData } from '@/api/user/types.ts'
 import { useRouter } from 'vue-router'
+import { getTime } from '@/utils/time.ts'
 
 const loginForm = ref<LoginFormData>({
   username: 'admin',
@@ -20,9 +21,11 @@ const login = async () => {
     load.value = false
     await new Promise((resolve) => setTimeout(resolve, 500))
     router.push('/')
+    const messageTime = getTime()
     ElNotification({
-      title: '登录成功',
+      title: `hi,${messageTime}好`,
       type: 'success',
+      message: '欢迎回来',
     })
   } catch (e) {
     console.log('e is %O', e)

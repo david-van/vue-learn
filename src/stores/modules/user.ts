@@ -1,11 +1,12 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { LoginFormData } from '@/api/user/types.ts'
 import { reqLogin } from '@/api/user'
+import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token.ts'
 
 const useUserStore = defineStore('User', {
   state: () => {
     return {
-      token: localStorage.getItem('token'),
+      token: GET_TOKEN(),
     }
   },
   getters: {},
@@ -15,11 +16,11 @@ const useUserStore = defineStore('User', {
         const result = await reqLogin(data)
         console.log('result is %O', result)
         this.token = result.token
-        localStorage.setItem('token', this.token)
+        SET_TOKEN(this.token)
       } catch (error) {
         console.log('error is %O', error)
         // 登录失败时清除 token
-        this.token = ''
+        REMOVE_TOKEN()
         // 重新抛出错误，让调用方可以处理
         throw error
       }
