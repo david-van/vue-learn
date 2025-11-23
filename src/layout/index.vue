@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Logo from '@/layout/logo.vue'
+</script>
 
 <template>
   <div class="layout_container">
     <!--    左侧导航-->
-    <div class="layout_slider">左侧导航</div>
+    <div class="layout_slider">
+      <Logo></Logo>
+    </div>
     <!--    顶部导航-->
     <div class="layout_top">顶部导航</div>
     <!--    数据展示区-->
