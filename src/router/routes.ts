@@ -3,6 +3,9 @@ export const constantRoute = [
     path: '/login',
     name: 'login',
     component: () => import('@/views/login/index.vue'),
+    meta: {
+      title: '登录',
+    },
   },
   {
     path: '/',
@@ -12,13 +15,22 @@ export const constantRoute = [
       {
         path: '/home',
         component: () => import('@/views/home/index.vue'),
+        meta: {
+          title: '首页2',
+        },
       },
     ],
+    meta: {
+      title: '首页',
+    },
   },
   {
     path: '/404',
     name: '404',
     component: () => import('@/views/404/index.vue'),
+    meta: {
+      title: 'title 404',
+    },
   },
   {
     path: '/:pathMatch(.*)*',
