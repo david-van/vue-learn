@@ -8,6 +8,12 @@ export const constantRoute = [
     path: '/',
     name: 'home',
     component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/home',
+        component: () => import('@/views/home/index.vue'),
+      },
+    ],
   },
   {
     path: '/404',

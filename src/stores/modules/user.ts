@@ -2,11 +2,14 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { LoginFormData } from '@/api/user/types.ts'
 import { reqLogin } from '@/api/user'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token.ts'
+import { constantRoute } from '@/router/routes.ts'
+import type { UserState } from '@/stores/modules/types/type.ts'
 
 const useUserStore = defineStore('User', {
-  state: () => {
+  state: (): UserState => {
     return {
       token: GET_TOKEN(),
+      menuRoute: constantRoute,
     }
   },
   getters: {},
