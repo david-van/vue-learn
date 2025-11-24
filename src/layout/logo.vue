@@ -12,7 +12,7 @@ import { logo_setting } from '@/setting.ts'
 <style scoped lang="scss">
 .logo {
   width: 100%;
-  height: 50px;
+  height: $layout-menu-logo-height;
   color: white;
   display: flex;
   align-items: center;
