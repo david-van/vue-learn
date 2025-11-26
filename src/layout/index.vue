@@ -31,7 +31,9 @@ const userStore = useUserStore()
     <!--    顶部导航-->
     <div class="layout_top">顶部导航</div>
     <!--    数据展示区-->
-    <div class="layout_data"><p style="background: red; height: 10000px">数据展示区</p></div>
+    <div class="layout_data">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
